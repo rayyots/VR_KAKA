@@ -16,7 +16,6 @@ Material:
   - _NORMALMAP
   - _OCCLUSIONMAP
   - _PARALLAXMAP
-  - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_InvalidKeywords:
   - _DISPLACEMENT_LOCK_TILING_SCALE
   - _HEIGHTMAP
@@ -282,7 +281,7 @@ Material:
     - _Smoothness: 0.195
     - _SmoothnessRemapMax: 0.9053988
     - _SmoothnessRemapMin: 0.22182351
-    - _SmoothnessTextureChannel: 1
+    - _SmoothnessTextureChannel: 0
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularHighlights: 1
