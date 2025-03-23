@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+
 public class koko : MonoBehaviour
 {
     public Light artworkLight;
@@ -12,12 +13,28 @@ public class koko : MonoBehaviour
     void Start()
     {
         grabInteractable = GetComponent<XRGrabInteractable>();
-        grabInteractable.activated.AddListener(ToggleLight);
+
+        if (grabInteractable != null)
+        {
+            grabInteractable.activated.AddListener(ToggleLight);  // Press button to toggle
+            grabInteractable.selectEntered.AddListener(Grabbed);  // When grabbing, turn off
+        }
+
+        if (artworkLight != null)
+        {
+            artworkLight.enabled = isOn; // Ensure initial state
+        }
     }
 
-    private void ToggleLight(ActivateEventArgs args)
+    public void ToggleLight(ActivateEventArgs args)
     {
         isOn = !isOn;
         artworkLight.enabled = isOn;
+    }
+
+    public void Grabbed(SelectEnterEventArgs args)
+    {
+        isOn = false;
+        artworkLight.enabled = false;
     }
 }
